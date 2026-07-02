@@ -15,3 +15,16 @@ formular.addEventListener("submit", function(e) {
   ${descValue} ${startValue} ${endValue}`;
   timetable.appendChild(inregistrare);
 });
+
+const filter = document.getElementById("filter");
+filter.addEventListener("change", function(e) {
+  e.preventDefault();
+  const rex = timetable.querySelectorAll(p);
+  rex.forEach(rec => {
+	const chk = filter.checked;
+	if ( (checked && ! rec.textContent.contains(date.value)) {
+		rec.classList.add("hidden");
+	else
+		rec.classList.remove("hidden");
+  });
+});
