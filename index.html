@@ -8,11 +8,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js">
+  </script>
 </head>
 
 <body>
-  <script src="script.js">
-  </script>
+  <header>
+    Planificator Activitati
+  </header>
+  <main>
+    <div>
+      <label for="date">Introduceti data:</label>
+      <input type="date" id="date">
+    </div>
+    <div class="non-hidden">
+      <form id="form">
+        <label for="name">Denumire</label>
+        <input type="text" id="name" required>
+        <label for="desc">Descriere</label>
+        <input type="text" id="desc">
+        <label for="start">Start</label>
+        <input type="time" id="start" required>
+        <label for="end">Sfarsit</label>
+        <input type="time" id="end" required>
+        <button type="submit" id="aplica">
+          Aplica
+        </button>
+      </form>
+    </div>
+    <div>
+      <div id="timetable" class="timetable">
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
