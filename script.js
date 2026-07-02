@@ -27,10 +27,9 @@ class Timetable {
 	}
 }
 
-function crudActivity() { }
-function handleLocalStorage() { }
-function initAll() { }
-function initDB() { }
-function pickDate() { }
-function populateElements() { }
+class Activity {
+	init(__date, __title, __description, __starttime, __endtime) {
+		// TODO
+	}
+}
 
