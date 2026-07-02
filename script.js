@@ -15,4 +15,3 @@ aplica.addEventListener("click", (e) => {
   ${descValue} ${startValue} ${endValue}`;
   timetable.appendChild(record);
 });
-
