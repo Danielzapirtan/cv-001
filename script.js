@@ -1,6 +1,6 @@
 const date = document.getElementById("date");
 const form = document.getElementById("form");
-const aplica = document.getElememtById("aplica");
+const aplica = document.getElementById("aplica");
 const timetable = document.getElementById("timetable");
 
 aplica.addEventListener("click", (e) => {
