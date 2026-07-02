@@ -18,3 +18,7 @@ button {
 label {
   color: blue;
 }
+
+.timetable {
+  display: block;
+}
