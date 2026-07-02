@@ -33,3 +33,24 @@ class Activity {
 	}
 }
 
+class ActivityWidget {
+	init() {
+		// TODO
+	}
+	load_activity(activity) {
+		__activity = activity;
+	}
+	update() {
+		// TODO
+	}
+}
+
+class DatePickerWidget {
+	init() {
+		// TODO
+	}
+	pick() {
+		// TODO
+	}
+}
+
