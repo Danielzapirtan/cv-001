@@ -1,7 +1,7 @@
 const body = document.getElementByTagName("body");
 
 class DB {
-	init() {
+	constructor() {
 		__db = [];
 	}
 	addRecord(record) {
@@ -19,7 +19,7 @@ class DB {
 }
 
 class Timetable {
-	init(db, date) {
+	constructor(db, date) {
 		db.filterByDate(date);
 	}
 	display() {
@@ -28,13 +28,13 @@ class Timetable {
 }
 
 class Activity {
-	init(__date, __title, __description, __starttime, __endtime) {
+	constructor(__date, __title, __description, __starttime, __endtime) {
 		// TODO
 	}
 }
 
 class ActivityWidget {
-	init() {
+	constructor() {
 		// TODO
 	}
 	load_activity(activity) {
@@ -46,7 +46,7 @@ class ActivityWidget {
 }
 
 class DatePickerWidget {
-	init() {
+	constructor() {
 		// TODO
 	}
 	pick() {
@@ -55,7 +55,7 @@ class DatePickerWidget {
 }
 
 class ApplicationWindow {
-	init() {
+	constructor() {
 		// TODO
 	}
 	update() {
