@@ -2,8 +2,13 @@ const date = document.getElementById("date");
 const formular = document.getElementById("form");
 const aplica = document.getElementById("aplica");
 const timetable = document.getElementById("timetable");
-
-formular.addEventListener("submit", function(e) {
+const getdb = localStorage.getItem("db");
+if (getdb) {
+  timetable.innerHTML = JSON.parse(getdb);
+} else {
+  timetable.innerHTML = ``;
+}
+formular.addEventListener("submit", function (e) {
   e.preventDefault();
   const dateValue = date.value;
   const nameValue = document.getElementById("name").value;
@@ -14,17 +19,19 @@ formular.addEventListener("submit", function(e) {
   inregistrare.innerHTML = `${dateValue} ${nameValue} \
   ${descValue} ${startValue} ${endValue}`;
   timetable.appendChild(inregistrare);
+  localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
 });
 
 const filter = document.getElementById("filter");
-filter.addEventListener("change", function(e) {
+filter.addEventListener("change", function (e) {
   e.preventDefault();
-  const rex = timetable.querySelectorAll(p);
-  rex.forEach(rec => {
-	const chk = filter.checked;
-	if ( (checked && ! rec.textContent.contains(date.value)) {
-		rec.classList.add("hidden");
-	else
-		rec.classList.remove("hidden");
+  const rex = timetable.querySelectorAll("p");
+  rex.forEach((rec) => {
+    const chk = filter.checked;
+    if (chk && !rec.innerHTML.includes(date.value)) {
+      rec.classList.add("hidden");
+    } else {
+      rec.classList.remove("hidden");
+    }
   });
 });
