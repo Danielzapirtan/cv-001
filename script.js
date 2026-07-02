@@ -10,7 +10,7 @@ aplica.addEventListener("click", (e) => {
   const descValue = document.getElementById("desc").value || "";
   const startValue = document.getElementById("start").value;
   const endValue = document.getElementById("end").value;
-  const record = document.createElement("div");
+  const record = document.createElement("p");
   record.innerHTML = `${dateValue} ${nameValue}
   ${descValue} ${startValue} ${endValue}`;
   timetable.appendChild(record);
