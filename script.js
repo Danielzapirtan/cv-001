@@ -3,7 +3,7 @@ const form = document.getElementById("form");
 const aplica = document.getElementById("aplica");
 const timetable = document.getElementById("timetable");
 
-aplica.addEventListener("click", (e) => {
+aplica.addEventListener("click", function(e) => {
   e.preventDefault();
   const dateValue = date.value;
   const nameValue = document.getElementById("name").value;
