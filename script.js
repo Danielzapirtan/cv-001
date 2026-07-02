@@ -2,16 +2,16 @@ const body = document.getElementByTagName("body");
 
 class DB {
 	constructor() {
-		__db = [];
+		self._db = [];
 	}
 	addRecord(record) {
-		__db.push(record);
+		self._db.push(record);
 	}
 	delRecord(record) {
 		// TODO
 	}
 	sort() {
-		__db.sort();
+		self._db.sort();
 	}
 	filterByDate(date) {
 		// TODO
@@ -28,7 +28,7 @@ class Timetable {
 }
 
 class Activity {
-	constructor(__date, __title, __description, __starttime, __endtime) {
+	constructor(date, title, description, starttime, endtime) {
 		// TODO
 	}
 }
@@ -38,7 +38,7 @@ class ActivityWidget {
 		// TODO
 	}
 	load_activity(activity) {
-		__activity = activity;
+		self._activity = activity;
 	}
 	update() {
 		// TODO
