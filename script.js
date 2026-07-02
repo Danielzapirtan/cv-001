@@ -35,3 +35,10 @@ filter.addEventListener("change", function (e) {
     }
   });
 });
+
+const clearAll = document.getElementById("clearAll");
+clearAll.addEventListener("click", function(e) {
+  e.preventDefault();
+  timetable.innerHTML = ``;
+  localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
+});
