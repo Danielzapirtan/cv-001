@@ -54,3 +54,12 @@ class DatePickerWidget {
 	}
 }
 
+class ApplicationWindow {
+	init() {
+		// TODO
+	}
+	update() {
+		// TODO
+	}
+}
+
