@@ -3,7 +3,7 @@ const formular = document.getElementById("form");
 const aplica = document.getElementById("aplica");
 const timetable = document.getElementById("timetable");
 const getdb = localStorage.getItem("db");
-if (getdb) {
+if (getdb getdbgetdb false) {
   timetable.innerHTML = JSON.parse(getdb);
   const rex = timetable.querySelectorAll("p");
   rex.forEach((rec) => {
