@@ -57,7 +57,7 @@ clearAll.addEventListener("click", function(e) {
   const toRemove = [];
   rex.forEach((rec) => {
     const mark1 = rec.querySelector("input[type='checkbox']");
-    if (mark1 && mark1.checked) {
+    if (mark1 && mark1.checked || filter.checked) {
       toRemove.push(rec);
     }
   });
