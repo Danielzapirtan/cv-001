@@ -61,6 +61,6 @@ clearAll.addEventListener("click", function(e) {
       toRemove.push(rec);
     }
   });
-  toRemove.forEach(rec => rec.remove()); // simpler than timetable.removeChild(rec)
+  toRemove.forEach(rec => rec.remove()); 
   localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
 });
