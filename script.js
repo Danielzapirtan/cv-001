@@ -26,12 +26,12 @@ formular.addEventListener("submit", function (e) {
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.clicked = false;
-  checkbox.addEventListener("click", function(event) {
-    timetable.removeChild("inregistrare");
-  });
   inregistrare.innerHTML = `${dateValue} ${nameValue} \
   ${descValue} ${startValue} ${endValue} ${checkbox}`;
   timetable.appendChild(inregistrare);
+  checkbox.addEventListener("click", function(event) {
+    timetable.removeChild("inregistrare");
+  });
   localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
 });
 
