@@ -8,13 +8,14 @@ if (getdb) {
   const rex = timetable.querySelectorAll("p");
   rex.forEach((rec) => {
     const date1 = rec.innerHTML.slice(0, 10);
-    if (Math.floor(new Date(date1) / 86400000) < Math.floor(new Date() / 86400000) {
+    if (Math.floor(new Date(date1) / 86400000) < Math.floor(new Date() / 86400000)) {
       rex.removeChild(rec);
     }
   });
 } else {
   timetable.innerHTML = ``;
 }
+
 formular.addEventListener("submit", function (e) {
   e.preventDefault();
   const dateValue = date.value;
@@ -25,13 +26,12 @@ formular.addEventListener("submit", function (e) {
   const inregistrare = document.createElement("p");
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
-  checkbox.clicked = false;
+  checkbox.classList.add("checkbox");
+  checkbox.checked = false;
   inregistrare.innerHTML = `${dateValue} ${nameValue} \
-  ${descValue} ${startValue} ${endValue} ${checkbox}`;
+  ${descValue} ${startValue} ${endValue}`;
+  inregistrare.appendChild(checkbox);
   timetable.appendChild(inregistrare);
-  checkbox.addEventListener("click", function(event) {
-    timetable.removeChild("inregistrare");
-  });
   localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
 });
 
@@ -50,8 +50,23 @@ filter.addEventListener("change", function (e) {
 });
 
 const clearAll = document.getElementById("clearAll");
+
+clearAll.addEventListener("hold", function(e) {
+  timetable.innerHTML = ``;
+  //timetable.reload();
+  localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
+});
+
 clearAll.addEventListener("click", function(e) {
   e.preventDefault();
-  timetable.innerHTML = ``;
+  const rex = timetable.querySelectorAll("p");
+  const toRemove = [];
+  rex.forEach((rec) => {
+    const mark1 = rec.querySelector("input[type='checkbox']");
+    if (mark1 && mark1.checked) {
+      toRemove.push(rec);
+    }
+  });
+  toRemove.forEach(rec => rec.remove()); // simpler than timetable.removeChild(rec)
   localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
 });
