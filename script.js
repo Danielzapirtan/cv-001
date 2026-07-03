@@ -51,12 +51,6 @@ filter.addEventListener("change", function (e) {
 
 const clearAll = document.getElementById("clearAll");
 
-clearAll.addEventListener("hold", function(e) {
-  timetable.innerHTML = ``;
-  //timetable.reload();
-  localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
-});
-
 clearAll.addEventListener("click", function(e) {
   e.preventDefault();
   const rex = timetable.querySelectorAll("p");
