@@ -5,6 +5,13 @@ const timetable = document.getElementById("timetable");
 const getdb = localStorage.getItem("db");
 if (getdb) {
   timetable.innerHTML = JSON.parse(getdb);
+  const rex = timetable.querySelectorAll("p");
+  rex.forEach((rec) => {
+    const date1 = rec.innerHTML.slice(0, 10);
+    if (Math.floor(new Date(date1) / 86400000) < Math.floor(new Date() / 86400000) {
+      rex.removeChild(rec);
+    }
+  });
 } else {
   timetable.innerHTML = ``;
 }
