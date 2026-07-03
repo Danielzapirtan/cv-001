@@ -23,8 +23,14 @@ formular.addEventListener("submit", function (e) {
   const startValue = document.getElementById("start").value;
   const endValue = document.getElementById("end").value;
   const inregistrare = document.createElement("p");
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.clicked = false;
+  checkbox.addEventListener("click", function(event) {
+    timetable.removeChild("inregistrare");
+  });
   inregistrare.innerHTML = `${dateValue} ${nameValue} \
-  ${descValue} ${startValue} ${endValue}`;
+  ${descValue} ${startValue} ${endValue} ${checkbox}`;
   timetable.appendChild(inregistrare);
   localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
 });
