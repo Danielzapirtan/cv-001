@@ -2,6 +2,7 @@ const date = document.getElementById("date");
 const formular = document.getElementById("form");
 const aplica = document.getElementById("aplica");
 const timetable = document.getElementById("timetable");
+const table = document.getElementById("table");
 const getdb = localStorage.getItem("db");
 if (getdb) {
   timetable.innerHTML = JSON.parse(getdb);
@@ -31,7 +32,10 @@ formular.addEventListener("submit", function (e) {
   inregistrare.innerHTML = `${dateValue} ${nameValue} \
   ${descValue} ${startValue} ${endValue}`;
   inregistrare.appendChild(checkbox);
+  const tr = document.createElement("tr");
+  tr.innerHTML = `<td>${dateValue}</td><td>${nameValue}</td><td>${descValue}</td><td>${startValue}</td><td>${endValue}</td><td><input type="checkbox"></td>`;
   timetable.appendChild(inregistrare);
+  table.appendChild(tr);
   localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
 });
 
