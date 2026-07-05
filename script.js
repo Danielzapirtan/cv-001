@@ -64,3 +64,4 @@ clearAll.addEventListener("click", function(e) {
   toRemove.forEach(rec => rec.remove()); 
   localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
 });
+
