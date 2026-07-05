@@ -1,20 +1,12 @@
 const date = document.getElementById("date");
 const formular = document.getElementById("form");
 const aplica = document.getElementById("aplica");
-const timetable = document.getElementById("timetable");
 const table = document.getElementById("table");
 const getdb = localStorage.getItem("db");
 if (getdb) {
-  timetable.innerHTML = JSON.parse(getdb);
-  const rex = timetable.querySelectorAll("p");
-  rex.forEach((rec) => {
-    const date1 = rec.innerHTML.slice(0, 10);
-    if (Math.floor(new Date(date1) / 86400000) < Math.floor(new Date() / 86400000)) {
-      rex.removeChild(rec);
-    }
-  });
+  table.innerHTML = JSON.parse(getdb);
 } else {
-  timetable.innerHTML = ``;
+  table.innerHTML = ``;
 }
 
 formular.addEventListener("submit", function (e) {
@@ -24,25 +16,20 @@ formular.addEventListener("submit", function (e) {
   const descValue = document.getElementById("desc").value || "";
   const startValue = document.getElementById("start").value;
   const endValue = document.getElementById("end").value;
-  const inregistrare = document.createElement("p");
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.classList.add("checkbox");
   checkbox.checked = false;
-  inregistrare.innerHTML = `${dateValue} ${nameValue} \
-  ${descValue} ${startValue} ${endValue}`;
-  inregistrare.appendChild(checkbox);
   const tr = document.createElement("tr");
   tr.innerHTML = `<td>${dateValue}</td><td>${nameValue}</td><td>${descValue}</td><td>${startValue}</td><td>${endValue}</td><td><input type="checkbox"></td>`;
-  timetable.appendChild(inregistrare);
   table.appendChild(tr);
-  localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
+  localStorage.setItem("db", JSON.stringify(table.innerHTML));
 });
 
 const filter = document.getElementById("filter");
 filter.addEventListener("change", function (e) {
   e.preventDefault();
-  const rex = timetable.querySelectorAll("p");
+  const rex = table.querySelectorAll("tr");
   rex.forEach((rec) => {
     const chk = filter.checked;
     if (chk && !rec.innerHTML.includes(date.value)) {
@@ -57,7 +44,7 @@ const clearAll = document.getElementById("clearAll");
 
 clearAll.addEventListener("click", function(e) {
   e.preventDefault();
-  const rex = timetable.querySelectorAll("p");
+  const rex = table.querySelectorAll("tr");
   const toRemove = [];
   rex.forEach((rec) => {
     const mark1 = rec.querySelector("input[type='checkbox']");
@@ -66,6 +53,6 @@ clearAll.addEventListener("click", function(e) {
     }
   });
   toRemove.forEach(rec => rec.remove()); 
-  localStorage.setItem("db", JSON.stringify(timetable.innerHTML));
+  localStorage.setItem("db", JSON.stringify(table.innerHTML));
 });
 
