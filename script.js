@@ -1,6 +1,6 @@
 const date = document.getElementById("date");
 const datemin = new Date();
-date.min = `2026-07-${datemin.getDate()}`;
+date.min = `2026-${datemin.getMonth()}-${datemin.getDate()}`;
 const formular = document.getElementById("form");
 const aplica = document.getElementById("aplica");
 const table = document.getElementById("table");
