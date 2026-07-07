@@ -3,7 +3,7 @@ const formular = document.getElementById("form");
 const aplica = document.getElementById("aplica");
 const table = document.getElementById("table");
 const getdb = localStorage.getItem("db");
-if (getdb) {
+if (false) {
   table.innerHTML = JSON.parse(getdb);
 } else {
   table.innerHTML = ``;
