@@ -1,4 +1,5 @@
 const date = document.getElementById("date");
+date.min = new Date().toISOString().slice(0,10);
 const formular = document.getElementById("form");
 const aplica = document.getElementById("aplica");
 const table = document.getElementById("table");
