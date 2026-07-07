@@ -25,6 +25,7 @@ formular.addEventListener("submit", function (e) {
   tr.innerHTML = `<td>${dateValue}</td><td>${nameValue}</td><td>${descValue}</td><td>${startValue}</td><td>${endValue}</td><td><input type="checkbox"></td>`;
   table.appendChild(tr);
   localStorage.setItem("db", JSON.stringify(table.innerHTML));
+  formular.reset();
 });
 
 const filter = document.getElementById("filter");
