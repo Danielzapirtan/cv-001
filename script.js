@@ -1,4 +1,5 @@
 const date = document.getElementById("date");
+date.min = new Date().toISOString().slice(0,10);
 const formular = document.getElementById("form");
 const aplica = document.getElementById("aplica");
 const table = document.getElementById("table");
@@ -24,6 +25,7 @@ formular.addEventListener("submit", function (e) {
   tr.innerHTML = `<td>${dateValue}</td><td>${nameValue}</td><td>${descValue}</td><td>${startValue}</td><td>${endValue}</td><td><input type="checkbox"></td>`;
   table.appendChild(tr);
   localStorage.setItem("db", JSON.stringify(table.innerHTML));
+  formular.reset();
 });
 
 const filter = document.getElementById("filter");
