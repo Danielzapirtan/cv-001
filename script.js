@@ -18,6 +18,10 @@ formular.addEventListener("submit", function (e) {
   const descValue = document.getElementById("desc").value || "";
   const startValue = document.getElementById("start").value;
   const endValue = document.getElementById("end").value;
+  if (checkOverlaping(startValue, endValue)) {
+    alert("Activitate suprapusă");
+    return;
+  }
   const tr = document.createElement("tr");
   tr.innerHTML = `<td>${dateValue}</td><td>${nameValue}</td><td>${descValue}</td><td>${startValue}</td><td>${endValue}</td><td><input type="checkbox"></td>`;
   table.appendChild(tr);
@@ -68,5 +72,31 @@ function forgetOldRex() {
   });
   toRemove.forEach(rec => rec.remove());
   localStorage.setItem("db", JSON.stringify(table.innerHTML));
+}
+
+function checkOverlaping(start, end) {
+  const dateValue = date.value;
+  const rex = table.querySelectorAll("tr");
+  rex.forEach((rec) => {
+    const tds = rec.querySelectorAll("td");
+    const myStart = tds[3].innerHTML;
+    const myEnd = tds[4].innerHTML;
+    const myDate = tds[0].innerHTML;
+    if (myDate === dateValue) {
+      if (myStart === start || myEnd === end) {
+        return true;
+      }
+      if (start > myStart && start < myEnd) {
+        return true;
+      }
+      if (end > myStart && end < myEnd) {
+        return true;
+      }
+      if (start >= end) {
+        return true;
+      }
+    }
+  });
+  return false;
 }
 
