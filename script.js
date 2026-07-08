@@ -73,3 +73,4 @@ function forgetOldRex() {
   toRemove.forEach(rec => rec.remove());
   localStorage.setItem("db", JSON.stringify(table.innerHTML));
 }
+
