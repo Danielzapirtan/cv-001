@@ -18,10 +18,6 @@ formular.addEventListener("submit", function (e) {
   const descValue = document.getElementById("desc").value || "";
   const startValue = document.getElementById("start").value;
   const endValue = document.getElementById("end").value;
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.classList.add("checkbox");
-  checkbox.checked = false;
   const tr = document.createElement("tr");
   tr.innerHTML = `<td>${dateValue}</td><td>${nameValue}</td><td>${descValue}</td><td>${startValue}</td><td>${endValue}</td><td><input type="checkbox"></td>`;
   table.appendChild(tr);
