@@ -97,6 +97,6 @@ function checkOverlaping(start, end) {
       }
     }
   });
-  return true;
+  return false;
 }
 
