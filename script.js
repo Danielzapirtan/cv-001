@@ -6,6 +6,7 @@ const table = document.getElementById("table");
 const getdb = localStorage.getItem("db");
 if (getdb) {
   table.innerHTML = JSON.parse(getdb);
+  forgetOldRex();
 } else {
   table.innerHTML = ``;
 }
@@ -58,3 +59,17 @@ clearAll.addEventListener("click", function(e) {
   localStorage.setItem("db", JSON.stringify(table.innerHTML));
 });
 
+function forgetOldRex() {
+  const rex = table.querySelectorAll("tr");
+  const toRemove = [];
+  rex.forEach((rec) => {
+    const tds = rec.querySelectorAll("td");
+    const date0 = Math.floor(new Date() / 86400000);
+    const date1 = Math.floor(new Date(tds[0].innerHTML) / 86400000);
+    if (date1 < date0) {
+      toRemove.push(rec);
+    }
+  });
+  toRemove.forEach(rec => rec.remove());
+  localStorage.setItem("db", JSON.stringify(table.innerHTML));
+}
