@@ -77,7 +77,8 @@ function forgetOldRex() {
 function checkOverlaping(start, end) {
   const dateValue = date.value;
   const rex = table.querySelectorAll("tr");
-  rex.forEach((rec) => {
+  for (let i = 0; i < rex.length; i++) {
+    const rec = rex[i];
     const tds = rec.querySelectorAll("td");
     const myStart = tds[3].innerHTML;
     const myEnd = tds[4].innerHTML;
@@ -96,7 +97,7 @@ function checkOverlaping(start, end) {
         return true;
       }
     }
-  });
+  }
   return false;
 }
 
