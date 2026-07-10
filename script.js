@@ -93,6 +93,9 @@ function checkOverlaping(start, end) {
       if (end > myStart && end < myEnd) {
         return true;
       }
+      if (start < myStart && end > myEnd) {
+        return true;
+      }
       if (start >= end) {
         return true;
       }
